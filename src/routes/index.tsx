@@ -65,14 +65,14 @@ function Header() {
 
   return (
     <header className="relative z-50 border-b border-border/70 bg-background/95">
-      <div className="mx-auto grid h-[76px] max-w-[1440px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8 lg:grid-cols-[180px_minmax(0,1fr)_210px] lg:px-10 xl:px-14">
+      <div className="mx-auto grid h-[76px] max-w-[1440px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8 lg:grid-cols-[210px_minmax(0,1fr)_210px] lg:px-10 xl:px-14">
         <a href="#hero" aria-label="Bliss Together home" className="inline-flex min-w-0 items-center">
           <img
             src={logoImage.url}
             alt="Bliss Together — Nourish. Balance. Thrive."
             width={952}
             height={692}
-            className="h-[62px] w-auto max-w-[148px] object-contain"
+            className="h-[68px] w-auto max-w-[180px] object-contain object-left sm:max-w-[195px]"
           />
         </a>
 
@@ -149,7 +149,7 @@ function ProductShowcase() {
                 src={product.image}
                 alt={product.name}
                 loading="eager"
-                className="h-full w-full scale-[2.22] object-cover object-center"
+                className="h-full w-full object-contain object-center p-1.5 sm:p-2"
               />
             </div>
             <figcaption className="sr-only">{product.name}</figcaption>
