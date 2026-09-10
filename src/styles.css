@@ -19,6 +19,8 @@
  */
 
 @theme inline {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Libre Caslon Display", serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -62,26 +64,30 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.5rem;
+  --background: oklch(0.975 0.014 91);
+  --foreground: oklch(0.255 0.055 154);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --primary: oklch(0.345 0.08 158);
+  --primary-foreground: oklch(0.985 0.01 92);
+  --secondary: oklch(0.93 0.03 92);
+  --secondary-foreground: oklch(0.31 0.065 157);
+  --muted: oklch(0.945 0.019 91);
+  --muted-foreground: oklch(0.47 0.035 154);
+  --accent: oklch(0.66 0.105 86);
+  --accent-foreground: oklch(0.25 0.05 154);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.85 0.025 91);
+  --input: oklch(0.85 0.025 91);
+  --ring: oklch(0.54 0.105 155);
+  --gold: oklch(0.63 0.105 83);
+  --hero-surface: oklch(0.985 0.012 92);
+  --shadow-button: 0 8px 20px color-mix(in oklab, var(--primary) 18%, transparent);
+  --shadow-button-hover: 0 12px 26px color-mix(in oklab, var(--primary) 25%, transparent);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +146,45 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-hero-surface: var(--hero-surface);
+}
+
+@keyframes hero-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes image-reveal {
+  from { opacity: 0; transform: scale(1.015); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@utility hero-reveal {
+  animation: hero-reveal 700ms ease-out both;
+}
+
+@utility image-reveal {
+  animation: image-reveal 900ms ease-out 100ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
